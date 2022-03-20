@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyp.gvoad.mapper.AffiliationMapper">
+
+    <resultMap id="BaseResultMap" type="com.zyp.gvoad.dao.AffiliationPO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="lat" property="lat" jdbcType="DOUBLE"/>
+        <result column="lng" property="lng" jdbcType="DOUBLE"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="state_code" property="stateCode" jdbcType="VARCHAR"/>
+        <result column="country_code" property="countryCode" jdbcType="VARCHAR"/>
+        <result column="city_id" property="cityId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        id, name, city, country, lat, lng, state, state_code, country_code, city_id
+    </sql>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        select <include refid="BaseColumnList"/>
+        from affiliation
+        where id = #{id}
+    </select>
+
+    <select id="selectNormal" resultMap="BaseResultMap">
+        select country
+        from affiliation
+    </select>
+
+    <select id="selectIdAndLatAndLng" resultMap="BaseResultMap">
+        select id, lat, lng
+        from affiliation
+    </select>
+
+    <select id="selectIdAndCountry" resultMap="BaseResultMap">
+        select id, country
+        from affiliation
+    </select>
+    
+    <select id="selectIdAndLatAndLngByCountry" resultMap="BaseResultMap">
+        select id, lat, lng
+        from affiliation
+        where country = #{country}
+    </select>
+
+    <select id="selectLatAndLngByIdList" resultMap="BaseResultMap">
+        select lat, lng
+        from affiliation
+        where id in
+        <foreach collection="idList" item="item" index="index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>

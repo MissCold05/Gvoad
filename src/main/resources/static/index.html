@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+    meta tags
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    title tag
+    -->
+    <title>Gvoad - 学术数据地域可视化系统</title>
+    <!--
+    stylesheets
+    -->
+    <link rel="icon" href="static/picture/icon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="static/css/css2.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/glightbox.min.css">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/line-awesome.min.css">
+    <link rel="stylesheet" href="static/css/overlay-scrollbars.min.css">
+    <link rel="stylesheet" href="static/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <!--
+    preloader - start
+    -->
+        <div class="preloader">
+            <div class="preloader-wrapper">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 200 200">
+                    <g class="pre load6">
+                        <path fill="#1B1A1C" d="M124.5,57L124.5,57c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7v0c0-3.9,3.1-7,7-7h36
+                C121.4,50,124.5,53.1,124.5,57z"></path>
+                        <path fill="#1B1A1C" d="M147.7,86.9L147.7,86.9c-2.7,2.7-7.2,2.7-9.9,0l-25.5-25.5c-2.7-2.7-2.7-7.2,0-9.9l0,0
+                c2.7-2.7,7.2-2.7,9.9,0L147.7,77C150.5,79.8,150.5,84.2,147.7,86.9z"></path>
+                        <path fill="#1B1A1C" d="M143,74.5L143,74.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7l0,0c-3.9,0-7-3.1-7-7v-36
+                C136,77.6,139.1,74.5,143,74.5z"></path>
+                        <path fill="#1B1A1C" d="M148.4,112.4L148.4,112.4c2.7,2.7,2.7,7.2,0,9.9L123,147.7c-2.7,2.7-7.2,2.7-9.9,0h0c-2.7-2.7-2.7-7.2,0-9.9
+                l25.5-25.5C141.3,109.6,145.7,109.6,148.4,112.4z"></path>
+                        <path fill="#1B1A1C" d="M125.5,143L125.5,143c0,3.9-3.1,7-7,7h-36c-3.9,0-7-3.1-7-7l0,0c0-3.9,3.1-7,7-7h36 C122.4,136,125.5,139.1,125.5,143z"></path>
+                        <path fill="#1B1A1C" d="M52.3,113.1L52.3,113.1c2.7-2.7,7.2-2.7,9.9,0l25.5,25.5c2.7,2.7,2.7,7.2,0,9.9h0c-2.7,2.7-7.2,2.7-9.9,0
+                L52.3,123C49.5,120.2,49.5,115.8,52.3,113.1z"></path>
+                        <path fill="#1B1A1C" d="M57,75.5L57,75.5c3.9,0,7,3.1,7,7v36c0,3.9-3.1,7-7,7h0c-3.9,0-7-3.1-7-7v-36C50,78.6,53.1,75.5,57,75.5z"></path>
+                        <path fill="#1B1A1C" d="M86.9,52.3L86.9,52.3c2.7,2.7,2.7,7.2,0,9.9L61.5,87.6c-2.7,2.7-7.2,2.7-9.9,0l0,0c-2.7-2.7-2.7-7.2,0-9.9
+                L77,52.3C79.8,49.5,84.2,49.5,86.9,52.3z"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="navigation-wrapper">
+                <div class="container">
+                    <div class="navigation-inner">
+                        <div class="navigation-logo">
+                            <a href="">
+                                <img src="static/picture/logo.png" alt="orions-logo">
+                            </a>
+                        </div>
+                        <div class="navigation-menu">
+                            <div class="mobile-header">
+                                <div class="logo">
+                                    <a href="">
+                                        <img src="static/picture/logo-white.png" alt="image">
+                                    </a>
+                                </div>
+                                <ul>
+                                    <li class="close-button">
+                                        <i class="fas fa-times"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="parent">
+                                <li>
+                                    <a href="" class="link-underline link-underline-1">
+                                        <span>主页</span>
+                                    </a>
+                                </li>
+                                <li class="has-child">
+                                    <a href="data-center.html" class="link-underline link-underline-1">
+                                        <span>数据中心</span>
+                                    </a>
+                                    <!--
+                                    <div class="child">
+                                        <ul>
+                                            <li>
+                                                <a href="data-center.html" class="link-underline">
+                                                    <span>数据中心</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="features-2.html" class="link-underline">
+                                                    <span>Features Style 2</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>-->
+                                </li>
+                                <li class="has-child">
+                                    <a href="about.html" class="link-underline link-underline-1">
+                                        <span>关于</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" class="link-underline link-underline-1">
+                                        <span>联系</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="social">
+                                <h6>Follow</h6>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="background-pattern">
+                                <div class="background-pattern-img background-loop" style="background-image: url(static/image/pattern.jpg);"></div>
+                                <div class="background-pattern-gradient"></div>
+                            </div>
+                        </div>
+                        <div class="navigation-bar">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero hero-1">
+            <div class="hero-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-0 order-lg-1 col-10 offset-1 order-2">
+                            <div class="hero-content">
+                                <h2 class="c-dark">学术数据地域可视化系统</h2>
+                                <p class="large c-grey">Gvoad(Geographic visualization of academic data)以DBLP提供的计算机论文数据为主要数据源，为用户提供可视化服务。</p>
+                                <div class="download-button-group">
+                                    <a href="#" class="download-button download-button-google">
+                                        <div class="download-button-inner">
+                                            <div class="download-button-icon c-purple">
+                                                <i class="fas fa-atom"></i>
+                                            </div>
+                                            <div class="download-button-content">
+                                                <h5 class="c-grey upper ls-1">go to</h5>
+                                                <h3 class="c-dark ls-2">数据中心</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="https://dblp.org/" class="download-button download-button-apple">
+                                        <div class="download-button-inner">
+                                            <div class="download-button-icon c-pink">
+                                                <i class="fa fa-location-arrow"></i>
+                                            </div>
+                                            <div class="download-button-content">
+                                                <h5 class="c-grey upper ls-1">go to</h5>
+                                                <h3 class="c-dark ls-2">数据源</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 offset-lg-0 order-lg-2 col-10 offset-1 order-1">
+                            <div class="hero-image">
+                                <img class="drop-shadow" src="static/picture/hero-phone.png" alt="image">
+                                <div class="hero-absolute-image">
+                                    <img src="static/picture/Artwork.png" alt="artwork">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-feature app-feature-1">
+            <div class="app-feature-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 offset-lg-0 col-10 offset-1">
+                            <div class="section-heading center width-64">
+                                <div class="sub-heading c-blue upper ls-1">
+                                    <i class="las la-cog"></i>
+                                    <h4>数据来源</h4>
+                                </div>
+                                <div class="main-heading c-dark">
+                                    <h2>我们的数据来自这些权威出版网站.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5 gy-5">
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://www.ieee.org" class="icon">
+                                        <i class="las la-comments"></i>
+                                    </a>
+                                    <a href="https://www.ieee.org">
+                                        <h3 class="c-dark">IEEE</h3>
+                                    </a>
+                                    <p class="c-grey">电气电子工程师学会是一个建立于1963年1月1日的国际性电子技术与电子工程师协会，亦是世界上最大的专业技术组织之一，其每年均会发表多种杂志、学报、书籍，亦举办至少300次的专业会议。</p>
+                                </div>
+                                <a href="https://www.ieee.org" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://link.springer.com" class="icon">
+                                        <i class="las la-headset"></i>
+                                    </a>
+                                    <a href="https://link.springer.com">
+                                        <h3 class="c-dark">SpringerLink</h3>
+                                    </a>
+                                    <p class="c-grey">SpringerLink是全球最大的在线科学、技术和医学领域学术资源平台，提供超过 1,900种同行评议的学术期刊、以及不断扩展的电子参考工具书、电子图书、实验室指南、在线回溯数据库以及更多内容。</p>
+                                </div>
+                                <a href="https://link.springer.com" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://dl.acm.org" class="icon">
+                                        <i class="las la-photo-video"></i>
+                                    </a>
+                                    <a href="https://dl.acm.org">
+                                        <h3 class="c-dark">ACM Digital Library</h3>
+                                    </a>
+                                    <p class="c-grey">ACM Digital Library是ACM数据库的平台，数据库中包括了ACM出版的期刊和会议录等电子版，收录从1950至今所有ACM期刊、杂志及有关计算机信息科技会议文献资料的书目数据。</p>
+                                </div>
+                                <a href="https://dl.acm.org" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://www.igi-global.com" class="icon">
+                                        <i class="las la-server"></i>
+                                    </a>
+                                    <a href="https://www.igi-global.com">
+                                        <h3 class="c-dark">IGI</h3>
+                                    </a>
+                                    <p class="c-grey">IGI出版社成立于1988年， 是一家领先的国际性的学术出版商。IGI长于出版信息技术应用和管理领域各个方面的高质量、创新型出版物（图书、期刊、教案和学报、教学视频课件），是一家国际认可的出版公司。</p>
+                                </div>
+                                <a href="https://www.igi-global.com" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://www.sciencedirect.com" class="icon">
+                                        <i class="las la-user-lock"></i>
+                                    </a>
+                                    <a href="https://www.sciencedirect.com">
+                                        <h3 class="c-dark">ScienceDirect</h3>
+                                    </a>
+                                    <p class="c-grey">Elsevier是荷兰一家全球著名的学术期刊出版商，每年出版大量的学术图书和期刊，近几年该公司通过ScienceDirect全文数据库将其出版的2,500多种期刊和11,000图书全部数字化，并通过网络提供服务。</p>
+                                </div>
+                                <a href="https://www.sciencedirect.com" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-10 offset-1">
+                            <div class="app-feature-single app-feature-single-2">
+                                <div class="app-feature-single-wrapper">
+                                    <a href="https://journals.sagepub.com" class="icon">
+                                        <i class="las la-map-marked-alt"></i>
+                                    </a>
+                                    <a href="https://journals.sagepub.com">
+                                        <h3 class="c-dark">SAGE journals</h3>
+                                    </a>
+                                    <p class="c-grey">SAGE是世界领先的独立学术出版公司，以支持有价值的知识传播和全球教育为宗旨。SAGE现刊数据库 提供900余种国际知名同行评审期刊的在线访问，学科涵盖来自人文社科、自然科学、科技和医学等领域。</p>
+                                </div>
+                                <a href="https://journals.sagepub.com" class="circle">
+                                    <i class="las la-plus"></i>
+                                    <i class="las la-angle-right hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+    app features wide section - end
+    -->
+        <!--
+    video section - start
+    -->
+        <div class="video-section">
+            <div class="video-section-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 offset-lg-1 order-lg-1 col-10 offset-1 order-2">
+                            <div class="video-section-content">
+                                <div class="section-heading section-heading-1 center-responsive c-white">
+                                    <div class="sub-heading upper ls-1">
+                                        <i class="las la-video"></i>
+                                        <h5>学校视频</h5>
+                                    </div>
+                                    <div class="main-heading">
+                                        <h1>华东师范大学</h1>
+                                        <h1>计算机科学与技术学院</h1>
+                                    </div>
+                                </div>
+                                <a href="http://cs.ecnu.edu.cn" class="button button-1">
+                                    <div class="button-inner">
+                                        <div class="button-content">
+                                            <h4>点击跳转</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 order-lg-2 order-1">
+                            <div class="video-section-video">
+                                <figure>
+                                    <img class="drop-shadow-1" src="static/picture/video-img.png" alt="image">
+                                    <div class="play">
+                                        <a href="https://www.bilibili.com/video/BV1J4411S7s3?spm_id_from=333.999.0.0" class="glightbox">
+                                            <i class="la la-play"></i>
+                                        </a>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="background-pattern background-pattern-radius drop-shadow-1">
+                        <div class="background-pattern-img background-loop" style="background-image: url(static/image/pattern.jpg);"></div>
+                        <div class="background-pattern-gradient"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+    video section - end
+    -->
+        <!--
+    feature section - start
+    -->
+        <div class="feature-section feature-section-0 feature-section-spacing-1">
+            <div class="feature-section-wrapper">
+                <div class="container">
+                    <div class="row gx-5">
+                        <div class="col-lg-7 offset-lg-0 order-lg-1 col-md-8 offset-md-2 col-10 offset-1 order-2">
+                            <div class="feature-section-content">
+                                <div class="section-heading">
+                                    <div class="sub-heading c-blue upper ls-1">
+                                        <i class="las la-cog"></i>
+                                        <h5>工具介绍</h5>
+                                    </div>
+                                    <div class="main-heading c-dark">
+                                        <h2>可视化插件</h2>
+                                    </div>
+                                </div>
+                                <div class="icon-text-group">
+                                </div>
+                                <div class="icon-text-group">
+                                    <div class="icon-text">
+                                        <i><img src="static/picture/echart_favicon.png"></i>
+                                        <p class="c-grey">ECharts开源来自百度商业前端数据可视化团队，基于html5 Canvas，是一个纯Javascript图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表，赋予了用户对数据进行挖掘、整合的能力。</p>
+                                    </div>
+                                    <div class="icon-text">
+                                        <i><img src="static/picture/leaflet_favicon.png"></i>
+                                        <p class="c-grey">Leaflet 是一个开源并且对移动端友好的交互式地图 JavaScript 库,简单、高效并且易用。它可以高效的运行在桌面和移动平台, 拥有着大量的扩展插件、优秀的文档、简单易用的API和完善的案例, 以及可读性较好的源码。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="icon-text-group">
+                                    <a href="https://echarts.apache.org" class="button button-2">
+                                        <div class="button-inner">
+                                            <div class="button-content">
+                                                <h4>Echarts主页</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div style="width: 8%;"></div>
+                                    <a href="https://leafletjs.cn" class="button button-3">
+                                        <div class="button-inner">
+                                            <div class="button-content">
+                                                <h4>Leaflet主页</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 offset-lg-0 order-lg-2 col-10 offset-1 order-1">
+                            <div class="feature-section-image"><img src="static/picture/feature-section-1-phone.png" class="phone" alt="phone">
+                                <div class="background-pattern background-pattern-radius">
+                                    <div class="background-pattern-img background-loop" style="background-image: url(static/image/pattern.jpg);"></div>
+                                    <div class="background-pattern-gradient"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="screen-section">
+            <div class="screen-section-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-0 col-10 offset-1">
+                            <div class="screen-section-header">
+                                <div class="section-heading center-responsive">
+                                    <div class="sub-heading c-blue upper ls-1">
+                                        <i class="las la-tablet"></i>
+                                        <h5>orions universal app</h5>
+                                    </div>
+                                    <div class="main-heading c-dark">
+                                        <h1>Have a look at what’s inside the app.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-0 col-10 offset-1">
+                            <div class="screen-slider-navigation slider-navigation">
+                                <div class="screen-slider-navigation-prev">
+                                    <i class="las la-long-arrow-alt-left"></i>
+                                </div>
+                                <div class="screen-slider-navigation-next">
+                                    <i class="las la-long-arrow-alt-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-slider">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="screen-slide">
+                                    <figure>
+                                        <img src="static/picture/screen-slider-img-1.png" alt="app-screen">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="screen-slide">
+                                    <figure>
+                                        <img src="static/picture/screen-slider-img-2.png" alt="app-screen">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="screen-slide">
+                                    <figure>
+                                        <img src="static/picture/screen-slider-img-3.png" alt="app-screen">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="screen-slide">
+                                    <figure>
+                                        <img src="static/picture/screen-slider-img-4.png" alt="app-screen">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-section-bottom">
+                    <div class="screen-section-bottom-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-0 col-10 offset-1">
+                                    <h1 class="c-white">Download from both Android and iOS</h1>
+                                    <h4 class="c-white">
+                                        <i class="fas fa-smile"></i>
+                                        3 Million users and counting!
+                                    </h4>
+                                </div>
+                                <div class="col-lg-4 offset-lg-0 col-10 offset-1">
+                                    <div class="download-button-group download-button-1-group">
+                                        <a href="#" class="download-button download-button-1 download-button-google">
+                                            <div class="download-button-inner">
+                                                <div class="download-button-icon c-purple">
+                                                    <i class="fab fa-google-play"></i>
+                                                </div>
+                                                <div class="download-button-content">
+                                                    <h5 class="c-grey upper ls-1">get it on</h5>
+                                                    <h3 class="c-dark ls-2">Google Play</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="download-button download-button-1 download-button-apple">
+                                            <div class="download-button-inner">
+                                                <div class="download-button-icon c-pink">
+                                                    <i class="fab fa-apple"></i>
+                                                </div>
+                                                <div class="download-button-content">
+                                                    <h5 class="c-grey upper ls-1">get it on</h5>
+                                                    <h3 class="c-dark ls-2">Apple Store</h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="background-pattern background-pattern-2">
+                <div class="background-pattern-img background-loop" style="background-image: url(static/image/pattern.jpg);"></div>
+                <div class="background-pattern-gradient"></div>
+                <div class="background-pattern-bottom">
+                    <div class="image" style="background-image: url(static/image/pattern-2.jpg);"></div>
+                </div>
+            </div>
+        </div>-->
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                            <div class="footer-row">
+                                <div class="footer-detail">
+                                    <a href="#">
+                                        <img src="static/picture/logo.png" alt="footer-logo">
+                                    </a>
+                                    <p class="c-grey-1">Gvoad(Geographic visualization of academic data)以DBLP提供的计算机论文数据源，为用户提供可视化服务。</p>
+                                    <div class="links">
+                                        <a class="link-underline" href="mailto:hello@orions.com">
+                                            <span>10185102105@stu.ecnu.edu.cn</span>
+                                        </a>
+                                        <a class="link-underline" href="tel:+86-21-6223-3333">
+                                            <span>+86 21 6223 3333</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="footer-list footer-social social-gradient">
+                                    <h5>关注</h5></br>
+                                    <ul>
+                                        <li class="twitter">
+                                            <a href="https://u.wechat.com/MEm7IS0MAgZbwVOYObV1enc" class="link-underline">
+                                                <i class="fab fa-weixin"></i>
+                                                <span>微信账号</span>
+                                            </a>
+                                        </li>
+                                        <li class="facebook">
+                                            <a href="https://weibo.com/" class="link-underline">
+                                                <i class="fab fa-weibo"></i>
+                                                <span>新浪微博</span>
+                                            </a>
+                                        </li>
+                                        <li class="linkedin">
+                                            <a href="https://www.zhihu.com/people/yun-zheng-31-28" class="link-underline">
+                                                <i class="fab fa-zhihu"></i>
+                                                <span>知乎主页</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-list">
+                                    <h5>菜单</h5></br>
+                                    <ul>
+                                        <li>
+                                            <a href="about.html" class="link-underline">
+                                                <span>关于网站</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="about.html" class="link-underline">
+                                                <span>创作团队</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html" class="link-underline">
+                                                <span>取得联系</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-list">
+                                    <h5>扩展</h5></br>
+                                    <ul>
+                                        <li>
+                                            <a href="privacy-policy.html" class="link-underline">
+                                                <span>服务内容</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="privacy-policy.html" class="link-underline">
+                                                <span>隐私条款</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="contact.html" class="link-underline">
+                                                <span>帮助中心</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 offset-lg-0 col-md-8 offset-md-2 col-10 offset-1">
+                            <div class="footer-copyright c-grey-1"></br>
+                                <h6>Copyright &copy; 2022.ECNU All rights reserved.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-pattern" style="background-image: url(static/image/pattern-1.jpg)"></div>
+            </div>
+        </footer>
+    </div>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/swiper-bundle.min.js"></script>
+    <script src="static/js/glightbox.min.js"></script>
+    <script src="static/js/overlay-scrollbars.min.js"></script>
+    <script src="static/js/gsap.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
